@@ -1,6 +1,6 @@
 
 
-## Integrating {quarto-webr} with {altdoc} through {quarto-Panelize}
+## Integrating {quarto-webr} with {altdoc} through {quarto-panelize}
 
 In this experiment, we’ll cover how to incorporate interactive code
 cells on an R package documentation website powered by
@@ -281,3 +281,11 @@ Feel free to check the live demo and source code for more details.
 - [Source Code](https://github.com/coatless-r-n-d/quarto-webr-in-altdoc)
 - [Live
   Demo](https://rd.thecoatlessprofessor.com/quarto-webr-in-altdoc/man/in_webr.html)
+
+## Acknowledgements
+
+This experiment greatly benefited from insights gleaned from discussing
+the use of extensions and pre-render scripts on the [`{altdoc}` issue
+tracker](https://github.com/etiennebacher/altdoc/issues/253) and with
+the Quarto developer team on different ways to approach handle cell
+changes.
