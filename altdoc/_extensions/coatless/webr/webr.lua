@@ -15,11 +15,11 @@ local hasDoneWebRSetup = false
 
 --- Define a base compatibile version
 ---@type string
-local baseVersionWebR = "0.3.3"
+local baseVersionWebR = "latest"
 
 --- Define where webR can be found
 ---@type string
-local baseUrl = "https://webr.r-wasm.org/v".. baseVersionWebR .."/"
+local baseUrl = "https://webr.r-wasm.org/".. baseVersionWebR .."/"
 
 --- Define where webR service workers are located
 ---@type string
