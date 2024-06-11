@@ -8,7 +8,7 @@ in_webr()
 }
 \description{
 The function checks whether the compiled version of \emph{R} shows an architecture
-that matches \code{"wasm32"}. If it's the case, we're likely using webR to access
+that matches \code{"emscripten"} . If it's the case, we're likely using webR to access
 R.
 }
 \examples{
