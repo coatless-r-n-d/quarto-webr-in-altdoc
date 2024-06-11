@@ -15,7 +15,7 @@ jobs:
   rwasmbuild:
     # Only restrict concurrency for non-PR jobs
     concurrency:
-      group: r-wasm-${{ github.event_name != 'pull_request' || github.run_id }}
+      group: altdoc-webr-${{ github.event_name != 'pull_request' || github.run_id }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     permissions:
@@ -45,13 +45,19 @@ jobs:
 
   altdoc:
     runs-on: ubuntu-latest
-    # Only restrict concurrency for non-PR jobs
-    concurrency:
-      group: altdoc-webr-${{ github.event_name != 'pull_request' || github.run_id }}
+    # Add a dependency on the prior job completing
+    needs: rwasmbuild
+    # Required for the gh-pages deployment action
+    environment:
+      name: github-pages
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     permissions:
-      contents: write
+      # To download GitHub Packages within action
+      repository-projects: read
+      # For publishing to pages environment
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v4
 
