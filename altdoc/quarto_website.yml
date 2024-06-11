@@ -30,6 +30,12 @@ website:
       - text: Citation
         file: $ALTDOC_CITATION
 
+# Add custom repository registration
+webr:
+  packages: ['$ALTDOC_PACKAGE_NAME']
+  repos:
+    - $ALTDOC_PACKAGE_URL
+    
 # Attach extensions
 filters:
 - panelize
