@@ -1,0 +1,21 @@
+Package: demorwasmbinary
+Title: webR Demo for Generating WASM R Package Binaries
+Version: 0.0.1
+Authors@R: c(
+             person("James", "Balamuta",
+                    email = "balamut2@illinois.edu", 
+                    role = c("aut", "cre"),
+                    comment = c(ORCID = "0000-0003-2826-8458")
+                   )
+            )
+Description: Package to test out generating Web Assembly binaries for R packages
+    using r-wasm GitHub Actions.
+URL: https://github.com/coatless-r-n-d/quarto-webr-in-altdoc
+BugReports: https://github.com/coatless-r-n-d/quarto-webr-in-altdoc/issues
+Depends: R (>= 4.4.0)
+License: GPL (>= 2)
+Encoding: UTF-8
+RoxygenNote: 7.3.0
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    altdoc
