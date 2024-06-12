@@ -1,0 +1,12 @@
+citHeader("To cite the 'altdocwebrdemo' package in publications use:")
+
+bibentry(bibtype = "Manual",
+         title        = "{altdocwebrdemo: altdoc webR Demo for interactive documentation}",
+         author       = c(
+                            as.person("James Joseph Balamuta")
+                        ),
+         year         = 2024,
+         textVersion  = paste("Balamuta, J. J. (2024)",
+                              "altdocwebrdemo: altdoc webR Demo for interactive documentation.",
+                              "URL https://github.com/coatless-r-n-d/quarto-webr-in-altdoc.")
+)
