@@ -16,6 +16,16 @@ repository through [`{rwasm}`](https://github.com/r-wasm/rwasm).
 Finally, we’ll deploy both to GitHub Pages using GitHub Actions to
 demonstrate the capabilities of the integration.
 
+You can see examples of the documentation pages on the [live
+website](https://rd.thecoatlessprofessor.com/quarto-webr-in-altdoc) by
+expanding **References** section on the left side of the documentation
+page:
+
+- Function page:
+  [`in_webr()`](https://rd.thecoatlessprofessor.com/quarto-webr-in-altdoc/man/in_webr.html)
+- Data page:
+  [`residual_surrealism`](https://rd.thecoatlessprofessor.com/quarto-webr-in-altdoc/man/residual_surrealism.html)
+
 ### Step 0: Have R Package with a GitHub Repository
 
 Ensure that you have an R package with a GitHub repository.

@@ -1,5 +1,5 @@
 Package: altdocwebrdemo
-Title: webR Demo for Generating WASM R Package Binaries
+Title: altdoc webR Demo for interactive documentation
 Version: 0.0.1
 Authors@R: c(
              person("James", "Balamuta",
