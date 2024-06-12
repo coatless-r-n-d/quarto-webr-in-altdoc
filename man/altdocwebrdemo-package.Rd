@@ -4,7 +4,7 @@
 \name{altdocwebrdemo-package}
 \alias{altdocwebrdemo}
 \alias{altdocwebrdemo-package}
-\title{altdocwebrdemo: webR Demo for Generating WASM R Package Binaries}
+\title{altdocwebrdemo: altdoc webR Demo for interactive documentation}
 \description{
 Package to test out generating Web Assembly binaries for R packages using r-wasm GitHub Actions and deploying an interactive cell within an altdoc Quarto documentation site.
 }
