@@ -6,6 +6,9 @@ website:
   title: "$ALTDOC_PACKAGE_NAME"
   navbar:
     search: true
+    left:
+      - text: "Home"
+        href: index.qmd
     right:
       - icon: github
         href: $ALTDOC_PACKAGE_URL_GITHUB
