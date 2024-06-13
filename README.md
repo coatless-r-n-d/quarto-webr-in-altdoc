@@ -67,14 +67,6 @@ quarto add coatless-quarto/panelize
 mv _extensions altdoc/_extensions
 ```
 
-> [!IMPORTANT]
->
-> The version of `{quarto-webr}` differs from the main repository
-> slightly to put the version of webR on the `latest` version instead of
-> `v0.3.3` as the [`{rwasm}`](https://github.com/r-wasm/rwasm) package
-> used to compile binaries is now obtaining one for R v4.4.0 instead of
-> R v4.3.3.
-
 ### Step 3: Add a pre-render step to `quarto_website.yaml` file
 
 1.  Add a [`pre-render`
@@ -188,7 +180,8 @@ jobs:
         with:
           packages: "."
           repo-path: "_site"
-      
+          webr-image: "ghcr.io/r-wasm/webr:v0.3.3" # fixed version for now
+
       # Upload the CRAN repository for use in the next step
       # Make sure to set a retention day to avoid running into a cap
       - name: Upload build artifact
@@ -271,6 +264,13 @@ jobs:
 You can view the full workflow file here:
 
 <https://github.com/coatless-r-n-d/quarto-webr-in-altdoc/blob/main/.github/workflows/altdoc.yaml>
+
+> [!IMPORTANT]
+>
+> We’ve fixed the version of webR being used to generate the R WASM
+> binaries to `v0.3.3` for the `webr-image` in the `rwasmbuild` job.
+> This is to ensure that a released/tagged version of webR is used
+> instead of depending on the latest release, e.g. `latest` tag.
 
 ### Step 8: Enable GitHub Pages
 
