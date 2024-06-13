@@ -13,7 +13,7 @@ Description: Package to test out generating Web Assembly binaries for R packages
     altdoc Quarto documentation site.
 URL: https://rd.thecoatlessprofessor.com/quarto-webr-in-altdoc, https://github.com/coatless-r-n-d/quarto-webr-in-altdoc
 BugReports: https://github.com/coatless-r-n-d/quarto-webr-in-altdoc/issues
-Depends: R (>= 4.4.0)
+Depends: R (>= 4.3.0)
 License: GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.3.1
