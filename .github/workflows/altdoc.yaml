@@ -31,6 +31,7 @@ jobs:
         with:
           packages: "."
           repo-path: "_site"
+          webr-image: "ghcr.io/r-wasm/webr:v0.3.3"
       
       # Upload the CRAN repository for use in the next step
       # Make sure to set a retention day to avoid running into a cap
