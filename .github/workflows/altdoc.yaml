@@ -80,15 +80,20 @@ jobs:
           install.packages(".", repos = NULL, type = "source")
           install.packages("pkgload")
           pkgload::load_all()
-          altdoc::render_docs(parallel = FALSE, freeze = FALSE)
+          altdoc::render_docs(verbose = TRUE, parallel = FALSE, freeze = FALSE)
         shell: Rscript {0}
+
+      - name: Display structure of website files under docs
+        run: |
+          ls -R docs
         
       - name: Copy to new directory
         run: |
           cp -r docs _site
       
-      - name: Display structure of website files
-        run: ls -R _site
+      - name: Display structure of website files under _site
+        run: |
+          ls -R _site
   
       # New material ---
       
@@ -99,8 +104,9 @@ jobs:
         with:
           name: rwasmrepo
           path: _site
+          merge-multiple: true
 
-      - name: Display structure of website files with binary
+      - name: Display structure of website files with binary under _site
         run: ls -R _site
       
       # Upload a tar file that will work with GitHub Pages
