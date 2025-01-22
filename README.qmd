@@ -158,17 +158,18 @@ jobs:
         with:
           packages: "."
           repo-path: "_site"
-          webr-image: "ghcr.io/r-wasm/webr:v0.3.3" # fixed version for now
-
+          webr-image: "ghcr.io/r-wasm/webr:v0.4.2" # fixed version for now
+      
       # Upload the CRAN repository for use in the next step
       # Make sure to set a retention day to avoid running into a cap
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: rwasmrepo
           path: |
             _site
           retention-days: 1
+
 
   altdoc:
     runs-on: ubuntu-latest
@@ -206,28 +207,30 @@ jobs:
           install.packages(".", repos = NULL, type = "source")
           install.packages("pkgload")
           pkgload::load_all()
-          altdoc::render_docs(parallel = FALSE, freeze = FALSE)
+          altdoc::render_docs(verbose = TRUE, parallel = FALSE, freeze = FALSE)
         shell: Rscript {0}
         
       - name: Copy to new directory
         run: |
-          cp -r docs _site
-        
+         mkdir -p _site
+         cp -r *quarto/*site/* _site/
+  
       # New material ---
       
       # Download the built R WASM CRAN repository from the prior step.
       # Extract it into the `_site` directory
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: rwasmrepo
           path: _site
+          merge-multiple: true
       
       # Upload a tar file that will work with GitHub Pages
       # Make sure to set a retention day to avoid running into a cap
       # This artifact shouldn't be required after deployment onto pages was a success.
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with: 
           retention-days: 1
       
@@ -236,7 +239,7 @@ jobs:
       # instead of using `docs/` or the `gh-pages` branch of the repository
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
 ```
 
 You can view the full workflow file here:
@@ -245,7 +248,7 @@ You can view the full workflow file here:
 
 :::{.callout-important}
 We've fixed the version of webR being used to generate the R WASM binaries
-to `v0.3.3` for the `webr-image` in the `rwasmbuild` job. This is to
+to `v0.4.2` for the `webr-image` in the `rwasmbuild` job. This is to
 ensure that a released/tagged version of webR is used instead of depending 
 on the latest release, e.g. `latest` tag.
 :::
