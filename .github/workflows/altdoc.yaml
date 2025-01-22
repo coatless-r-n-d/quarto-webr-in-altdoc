@@ -83,17 +83,13 @@ jobs:
           altdoc::render_docs(verbose = TRUE, parallel = FALSE, freeze = FALSE)
         shell: Rscript {0}
         
-      - name: Display structure of website files under _site
-        run: |
-          ls -R _site
-          
       - name: Display structure of website files under docs
         run: |
           ls -R docs
         
-      #- name: Copy to new directory
-      #  run: |
-      #    cp -r docs _site
+      - name: Copy to new directory
+       run: |
+         cp -r docs _site
       
       - name: Display structure of website files under _site
         run: |
