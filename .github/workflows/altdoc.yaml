@@ -98,10 +98,15 @@ jobs:
       - name: Display structure of website files under _quarto
         run: |
           ls -R _quarto
+          
+      - name: Display structure of website files under _quarto/*site
+        run: |
+          ls -R *quarto/*site
         
       - name: Copy to new directory
         run: |
-         cp -r _quarto/_site/* _site/
+         mkdir -p _site
+         cp -r *quarto/*site/* _site/
       
       - name: Display structure of website files under _site
         run: |
