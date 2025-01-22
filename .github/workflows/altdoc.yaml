@@ -88,7 +88,7 @@ jobs:
           ls -R docs
         
       - name: Copy to new directory
-       run: |
+        run: |
          cp -r docs _site
       
       - name: Display structure of website files under _site
