@@ -86,7 +86,10 @@ jobs:
       - name: Copy to new directory
         run: |
           cp -r docs _site
-        
+      
+      - name: Display structure of website files
+        run: ls -R _site
+  
       # New material ---
       
       # Download the built R WASM CRAN repository from the prior step.
@@ -96,6 +99,9 @@ jobs:
         with:
           name: rwasmrepo
           path: _site
+
+      - name: Display structure of website files with binary
+        run: ls -R _site
       
       # Upload a tar file that will work with GitHub Pages
       # Make sure to set a retention day to avoid running into a cap
