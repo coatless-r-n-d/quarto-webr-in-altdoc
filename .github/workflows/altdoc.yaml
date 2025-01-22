@@ -94,10 +94,14 @@ jobs:
       - name: Display structure of website files under docs
         run: |
           ls -R docs
+          
+      - name: Display structure of website files under _quarto
+        run: |
+          ls -R _quarto
         
       - name: Copy to new directory
         run: |
-         cp -r docs _site
+         cp -r _quarto _site
       
       - name: Display structure of website files under _site
         run: |
