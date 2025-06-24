@@ -180,7 +180,7 @@ jobs:
         with:
           packages: "."
           repo-path: "_site"
-          webr-image: "ghcr.io/r-wasm/webr:v0.4.2" # fixed version for now
+          webr-image: "ghcr.io/r-wasm/webr:v0.5.2" # fixed version for now
       
       # Upload the CRAN repository for use in the next step
       # Make sure to set a retention day to avoid running into a cap
@@ -221,6 +221,14 @@ jobs:
 
       - name: Dependencies
         run: ./run.sh install_all
+
+      # Tagged quarto extension versions to work with webR ---
+      - name: Grab tagged versions of Quarto Extensions
+        run: |
+         cd altdoc
+         quarto add --no-prompt coatless/quarto-webr@0.4.3
+         quarto add --no-prompt coatless-quarto/panelize@0.0.2
+         cd ../
 
       - name: Build site
         run: |
@@ -270,10 +278,12 @@ You can view the full workflow file here:
 
 > [!IMPORTANT]
 >
-> We’ve fixed the version of webR being used to generate the R WASM
-> binaries to `v0.4.2` for the `webr-image` in the `rwasmbuild` job.
+> We've fixed the version of webR being used to generate the R WASM
+> binaries to `v0.5.2` for the `webr-image` in the `rwasmbuild` job.
+> We've also fixed the quarto extensions to specific tagged versions 
+> for `coatless/quarto-webr@0.4.3` and `coatless-quarto/panelize@0.0.2`.
 > This is to ensure that a released/tagged version of webR is used
-> instead of depending on the latest release, e.g. `latest` tag.
+> instead of depending on the latest release, e.g. `latest` tag.
 
 ### Step 8: Enable GitHub Pages
 
