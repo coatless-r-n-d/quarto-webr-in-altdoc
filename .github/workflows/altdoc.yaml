@@ -31,7 +31,7 @@ jobs:
         with:
           packages: "."
           repo-path: "_site"
-          webr-image: "ghcr.io/r-wasm/webr:v0.4.2"
+          webr-image: "ghcr.io/r-wasm/webr:v0.5.2"
       
       # Upload the CRAN repository for use in the next step
       # Make sure to set a retention day to avoid running into a cap
@@ -72,6 +72,14 @@ jobs:
 
       - name: Dependencies
         run: ./run.sh install_all
+
+      # Tagged quarto extension versions to work with webR ---
+      - name: Grab tagged versions of Quarto Extensions
+        run: |
+         cd altdoc
+         quarto add --no-prompt coatless/quarto-webr@0.4.3
+         quarto add --no-prompt coatless-quarto/panelize@0.0.2
+         cd ../
 
       - name: Build site
         run: |
